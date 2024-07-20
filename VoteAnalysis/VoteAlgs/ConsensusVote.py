@@ -1,6 +1,6 @@
-from data_generator import NResult
 import random
 
+from nversionmodule.data_generator import NResult
 
 error_string = "Input list is empty"
 

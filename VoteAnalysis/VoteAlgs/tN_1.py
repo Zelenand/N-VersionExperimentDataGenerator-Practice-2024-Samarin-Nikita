@@ -5,7 +5,7 @@ https://eprints.ncl.ac.uk/file_store/production/59232/8480AF9B-598A-462C-8417-1B
 Program for simulation several N-versions work of one module to test vote algorithms.
 Experiment is carried out in Denis V. Gruzenkin PhD thesis writing.
 """
-from data_generator import NResult
+from nversionmodule.data_generator import NResult
 
 
 def vote(results: list[NResult]) -> float:
@@ -93,4 +93,3 @@ def vote(results: list[NResult]) -> float:
         correct_result = output_indexes[n - 1]
 
     return correct_result
-

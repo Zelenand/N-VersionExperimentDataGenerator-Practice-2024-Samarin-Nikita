@@ -42,7 +42,7 @@ class DBConnector(metaclass=DBConnectorMeta):
     def connect_2_db(self):
         self._connection = sqlite3.connect(self._db_name)
 
-    def execute_query(self, query_str, parameters=[], commit=False, return_query_set=True):
+    def execute_query(self, query_str, parameters=None, commit=False, return_query_set=True):
         """
         It executes query string with or without parameters and commit and return query set if it is necessary
         :param query_str: SQL-query string for execution
@@ -51,6 +51,8 @@ class DBConnector(metaclass=DBConnectorMeta):
         :param return_query_set: Is needed return query set flag, by default is True
         :return: SQL query set or None
         """
+        if parameters is None:
+            parameters = []
         many_parameters = False
         if len(parameters) > 0:
             # Если в качестве параметров передан список или кортеж, содержащий составной тип,
@@ -88,7 +90,9 @@ class DBConnector(metaclass=DBConnectorMeta):
         return result
 
     def table_exists(self, table_name: str) -> bool:
+        """Check if table exists in database"""
         check_query = f"SELECT name FROM sqlite_master WHERE type='table' AND name='{table_name}';"
+        print(check_query)
         result = False
         if len(self.execute_query(check_query)) > 0:
             result = True

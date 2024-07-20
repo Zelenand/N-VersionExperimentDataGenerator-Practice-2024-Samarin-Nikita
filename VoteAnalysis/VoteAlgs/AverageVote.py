@@ -1,6 +1,6 @@
 from statistics import mean
 
-from data_generator import NResult
+from nversionmodule.data_generator import NResult
 
 
 def vote(results: list[NResult]) -> float:

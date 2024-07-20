@@ -1,3 +1,8 @@
+"""Module importer module to import vote algorithms modules
+
+Program for simulation several N-versions work of one module to test vote algorithms.
+Experiment is carried out in Denis V. Gruzenkin PhD thesis writing.
+"""
 from importlib.util import find_spec, module_from_spec
 
 
